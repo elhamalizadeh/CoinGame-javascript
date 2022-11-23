@@ -3,45 +3,16 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/cerulean/bootstrap.min.css" />
     <title>Coin Game</title>
   </head>
   <body>
+    <div class="container text-center" style="margin-top:10px">
     <div class="message"> Select either Heads Or Tails</div>
     <br/>
-      <button type="button">Heads</button>
-      <button type="button">Tails</button>
+      <button type="button" class="btn btn-primary">Heads</button>
+      <button type="button" class="btn btn-primary">Tails</button>
+    </div>
   </body>
-  <script>
-    const coinArray = ["Heads", "Tails"];
-    let score = [0, 0];
-
-    let message = document.querySelector(".message");
-    let buttons = document.querySelectorAll("button");
-    console.log(buttons);
-    for (let i = 0; i < buttons.length; i++) {
-      console.log(buttons[i]);
-      buttons[i].addEventListener("click", tossCoin);
-    }
-
-    function tossCoin(e) {
-      console.log(e.target.innerText);
-      let playerGuess = e.target.innerText;
-      let computerToss = Math.floor(Math.random() * 2);
-      let computerGuess = coinArray[computerToss];
-      message.innerHTML = "Computer Selected:" + computerGuess;
-      let output;
-      if (playerGuess === computerGuess) {
-        output = " <br/> Player Win .";
-        score[0]++;
-        var color = "green";
-      } else {
-        output = " <br/> Computer Win .";
-        score[1]++;
-        var color = "red";
-      }
-      message.innerHTML +=
-        output + "<br/> Player : " + score[0] + " Computer : " + score[1];
-        message.style.color = color;
-    }
-  </script>
+  <script src="app.js"></script>
 </html>
